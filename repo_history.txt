@@ -1,0 +1,81 @@
+  553  cd Code
+  555  mkdir branching_examples
+  559  git init branching_examples
+  560  cd branching_examples/
+  562  vim .
+  563  mv README.txt fox.txt 
+  564  vim . 
+  565  gs
+  566  gca 'create some files' 
+  567  git add .
+  568  gs
+  569  gca 'create some files' 
+  570  git log 
+  571  vim . 
+  516  cd ~/Code/branching_examples/ 
+  517  git checkout -b demo-of-merge-no-ff-git-cli 
+  518  vim fox.txt 
+  519  gs 
+  520  gca 'change fox'
+  521  git checkout master 
+  522  vim lamb.txt 
+  523  gca 'change lamb' 
+  524  git checkout demo-of-merge-no-ff-git-cli 
+  525  git merge --no-ff master 
+  526  gitx  
+  527  vim . 
+  528  gca 'changes needed due to merge'
+  529  git checkout master
+  530  git merge --no-ff demo-of-merge-no-ff-git-cli 
+  531  vim do
+  532  vim fox.txt 
+  533  gca 'trivial change' 
+  534  git checkout -b another-demo-of-merge-no-ff-git-cli 
+  535  vim fox.txt 
+  536  gca 'fox change' 
+  537  git checkout master 
+  538  git checkout another-demo-of-merge-no-ff-git-cli-branch-two
+  539  git checkout -b another-demo-of-merge-no-ff-git-cli-branch-two
+  540  gitx 
+  541  git branch -d  another-demo-of-merge-no-ff-git-cli-branch-two
+  542  git checkout master 
+  543  git branch -d  another-demo-of-merge-no-ff-git-cli-branch-two
+  544  git vim lamb.txt
+  545  vim lamb.txt
+  546  gca 'lamb change' 
+  547  git branch -d  another-demo-of-merge-no-ff-git-cli-branch-two
+  548  git checkout -b another-demo-of-merge-no-ff-git-cli-branch-two
+  549  vim lamb.txt 
+  550  gca 'mary change' 
+  551  git checkout master 
+  552  vim fox.txt 
+  553  gca 'fox change' 
+  554  git checkout another-demo-of-merge-no-ff-git-cli
+  555  git merge --no-ff master 
+  556  git checkout master 
+  557  git checkout another-demo-of-merge-no-ff-git-cli
+  558  vim fox.txt 
+  559  gca 'changes needed after merge' 
+  560  git checkout master
+  561  vim lamb.txt 
+  562  gca 'another lamb change' 
+  563  git checkout another-demo-of-merge-no-ff-git-cli-branch-two 
+  566  git merge --no-ff master 
+  567  git checkout another-demo-of-merge-no-ff-git-cli
+  568  git merge --no-ff master 
+  569  vim lamb.txt 
+  570  gca 'changes necessitated by merge' 
+  571  git checkout master 
+  572  git merge --no-ff another-demo-of-merge-no-ff-git-cli
+  573  git checkout another-demo-of-merge-no-ff-git-cli-branch-two 
+  574  git merge --no-ff master 
+  575  gs 
+  576  vim lamb.txt 
+  577  git add lamb.txt
+  578  gs 
+  579  git commit 
+  580  vim fox.txt 
+  581  gca 'changes needed after merge' 
+  582  git checkout master 
+  583  git merge --no-ff another-demo-of-merge-no-ff-git-cli-branch-two 
+  584  git help rebase 
